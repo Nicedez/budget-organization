@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Envelope Budget</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>Create New envelope</h1>
+        <br>
+        
+    
+        <form action="http://localhost:3000/envelopes" method="POST">
+            <div class="form-group">
+                <label for="envelopes">Envelopes</label>
+                <input class="form-control" name="envelopes">
+            </div>
+    
+            <div class="form-group">
+                <label for="budget">Budget</label>
+                <input class="form-control" name="budget" pattern="[0-9].{1,}">
+            </div>
+    
+        
+            <div class="form-group">
+                <input type="submit" value="Submit" onClick="postEnvelope()">
+              </div>
+        </form>
+      
+    </div>
+    <br>
+    <div class="container">
+        
+        <h2>Envelope Budget</h2>
+    
+        <table id="envelopesTable">
+          <tr>
+            <th>Envelope Name</th>
+            <th>Budget</th>
+            <th>Action</th>
+          </tr>
+          <!-- Add more rows for additional envelopes -->
+          
+        </table>
+        
+        </form>
+    
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>

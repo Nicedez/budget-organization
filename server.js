@@ -8,7 +8,7 @@ let envelopes = [
     { id: 1, envelopes: 'Dining Out', budget: 100 },
     { id: 2, envelopes: 'Groceries', budget: 200 }
 ];
-
+let currentId = 3;
 app.use(cors());
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,14 +36,15 @@ app.get('/envelopes/:id', (req, res)=>{
       return res.json(getEnvelopeById);
     })
 app.post('/envelopes', (req, res, next)=>{
+   const newId = currentId++;
     let newEnvelopes = {
-        id: req.body.id, 
+        id: newId, 
         envelopes:req.body.envelopes,
         budget:req.body.budget
     };
     console.log(newEnvelopes);
     envelopes.push(newEnvelopes);
-    res.json(envelopes);
+    res.status(200).send("<h1>Envelope add succesfully</h1>");
 })
 app.put('/envelopes/:id', (req, res)=>{
     const id =  parseInt(req.params.id);
